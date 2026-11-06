@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+dist/old/
+tests/_ui_results.json
+tests/test_scene.blend
+tests/test_scene.blend1
+docs/visuals/_render/

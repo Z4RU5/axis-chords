@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+
+id = "axis_chords"
+version = "1.2.0"
+name = "Axis Chords"
+tagline = "Press two axis keys together during Move to move diagonally"
+maintainer = "Ash & Pause"
+website = "https://github.com/Z4RU5/axis-chords"
+type = "add-on"
+
+blender_version_min = "4.2.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+tags = ["3D View", "Modeling", "Object"]
