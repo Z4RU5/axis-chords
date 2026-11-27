@@ -746,7 +746,7 @@ def _bind_move_keys():
     restart Blender) after changing Move's key."""
     kc = bpy.context.window_manager.keyconfigs.addon
     if kc is None:
-        return None
+        return 0.5            # keyconfigs not built yet: try again shortly
     _unbind_move_keys()
     for name in MOVE_KEYMAPS:
         keys = _move_keys(name)
@@ -762,7 +762,9 @@ def _bind_move_keys():
 def register():
     for c in classes:
         bpy.utils.register_class(c)
-    bpy.app.timers.register(_bind_move_keys, first_interval=1.0)
+    # persistent: Blender drops other timers when a file loads, and a Blender
+    # started with a .blend loads it before this 1 s timer fires (1.2.0 bug).
+    bpy.app.timers.register(_bind_move_keys, first_interval=1.0, persistent=True)
 
 
 def unregister():
